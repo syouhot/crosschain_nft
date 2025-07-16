@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 // Compatible with OpenZeppelin Contracts ^5.0.0
-pragma solidity ^0.8.27;
+pragma solidity ^0.8.24;
 
 import {ERC721} from "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import {ERC721Burnable} from "@openzeppelin/contracts/token/ERC721/extensions/ERC721Burnable.sol";
@@ -13,20 +13,15 @@ contract MyToken is ERC721, ERC721Enumerable, ERC721URIStorage, ERC721Burnable, 
     //metadata
     // string constant META_DATA ="https://voluminous-amber-pony.myfilebase.com/ipfs/QmUpj6rXy6TwbhKXX9iHJqynrUCrzgDPoeFXJ36ToH4f7f";
     string constant META_DATA ="ipfs://QmUpj6rXy6TwbhKXX9iHJqynrUCrzgDPoeFXJ36ToH4f7f";
-    constructor(address initialOwner)
-        ERC721("MyToken", "MTK")
-        Ownable(initialOwner)
+    constructor(string memory tokenName,string memory tokenSymbol)
+        ERC721(tokenName, tokenSymbol)
+        Ownable(msg.sender)
     {}
 
-    function safeMint(address to)
-        public
-        onlyOwner
-        returns (uint256)
-    {
+    function safeMint(address to) public {
         uint256 tokenId = _nextTokenId++;
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, META_DATA);
-        return tokenId;
     }
 
     // The following functions are overrides required by Solidity.
