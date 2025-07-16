@@ -1,0 +1,20 @@
+{
+    "description": "NFT One,shiba inu stands on the ground",
+    "external_url": "https:/openseacreatures.io/3",
+    "image": "https://voluminous-amber-pony.myfilebase.com/ipfs/QmPWScZ62i57KNYrF7zjfYmPS9LJnQRr9vWKRMj2L9riNZ",
+    "name": "NFT One",
+    "attributes": [
+        {
+            "trait_type": "Background",
+            "value": "White"
+        },
+        {
+            "trait_type": "Eye",
+            "value": "Blue"
+        },
+        {
+            "trait_type": "Level",
+            "value": "three"
+        }
+    ]
+}
