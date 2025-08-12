@@ -35,7 +35,7 @@ describe("source chain -> dest chain tests", async function () {
     })
     it("test if user can lock a nft to nft pool and send ccip message on source chain", async function () {
         await nft.approve(nftPoolLockAndRelease.target, 0)
-        await ccipSimulator.requestLinkFromFaucet(nftPoolLockAndRelease, ethers.parseEther("10"))
+        await ccipSimulator.requestLinkFromFaucet(nftPoolLockAndRelease, ethers.parseEther("10"))//水龙头充值
         await nftPoolLockAndRelease.lockAndSendNFT(0, firstAcount, chainSelector, nftPoolBurnAndMint.target)
         const owner = await nft.ownerOf(0)
         expect(owner).to.equal(nftPoolLockAndRelease)
